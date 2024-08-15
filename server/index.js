@@ -21,7 +21,7 @@ app.use(cookieParser());
 app.use(
   cors({
     origin: ['https://expense-tracker-frontend-simran-jains-projects.vercel.app'],
-    // origin: "*",
+    allowedHeaders: ["Content-Type", "Authorization"],
     methods: ["GET", "POST", "PUT", "DELETE"],
     credentials: true,
   })
