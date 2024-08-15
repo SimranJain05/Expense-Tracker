@@ -1,9 +1,11 @@
 import axios from "axios";
-import API_BASE_URL from "../config/API.config";
+// import API_BASE_URL from "../config/API.config";
+import dotenv from 'dotenv';
+dotenv.config();
 
 export const getUserAllBudgetsApi = async () => {
   try {
-    const response = await axios.get(`${API_BASE_URL}/api/budget/get`, {
+    const response = await axios.get(`${VITE_API_URL}/api/budget/get`, {
       withCredentials: true,
     });
     return response.data;
@@ -15,7 +17,7 @@ export const getUserAllBudgetsApi = async () => {
 export const getBudgetByIdApi = async (budgetId) => {
   try {
     const response = await axios.get(
-      `${API_BASE_URL}/api/budget/get/${budgetId}`,
+      `${VITE_API_URL}/api/budget/get/${budgetId}`,
       {
         withCredentials: true,
       }
@@ -28,7 +30,7 @@ export const getBudgetByIdApi = async (budgetId) => {
 
 export const addBudgetsApi = async (body) => {
   try {
-    const response = await axios.post(`${API_BASE_URL}/api/budget/add`, body, {
+    const response = await axios.post(`${VITE_API_URL}/api/budget/add`, body, {
       withCredentials: true,
     });
     return response.data;
@@ -40,7 +42,7 @@ export const addBudgetsApi = async (body) => {
 export const updateBudgetApi = async (body) => {
   try {
     const response = await axios.put(
-      `${API_BASE_URL}/api/budget/update`,
+      `${VITE_API_URL}/api/budget/update`,
       body,
       {
         withCredentials: true,
@@ -55,7 +57,7 @@ export const updateBudgetApi = async (body) => {
 export const deleteBudgetApi = async (budgetId) => {
   try {
     const response = await axios.delete(
-      `${API_BASE_URL}/api/budget/delete/${budgetId}`,
+      `${VITE_API_URL}/api/budget/delete/${budgetId}`,
       {
         withCredentials: true,
       }
