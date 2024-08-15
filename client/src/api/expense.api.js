@@ -1,9 +1,11 @@
 import axios from "axios";
-import API_BASE_URL from "../config/API.config";
+// import API_BASE_URL from "../config/API.config";
+import dotenv from 'dotenv';
+dotenv.config();
 
 export const getUserAllExpenses = async () => {
   try {
-    const response = await axios.get(`${API_BASE_URL}/api/expense/get`, {
+    const response = await axios.get(`${VITE_API_URL}/api/expense/get`, {
       withCredentials: true,
     });
     return response.data;
@@ -15,7 +17,7 @@ export const getUserAllExpenses = async () => {
 export const getExpensesByBudgetApi = async (budgetId) => {
   try {
     const response = await axios.get(
-      `${API_BASE_URL}/api/expense/get/budget/${budgetId}`,
+      `${VITE_API_URL}/api/expense/get/budget/${budgetId}`,
       {
         withCredentials: true,
       }
@@ -28,7 +30,7 @@ export const getExpensesByBudgetApi = async (budgetId) => {
 
 export const addExpenseApi = async (body) => {
   try {
-    const response = await axios.post(`${API_BASE_URL}/api/expense/add`, body, {
+    const response = await axios.post(`${VITE_API_URL}/api/expense/add`, body, {
       withCredentials: true,
     });
     return response.data;
@@ -40,7 +42,7 @@ export const addExpenseApi = async (body) => {
 export const updateUserExpensesApi = async (expenseId, data) => {
   try {
     const response = await axios.put(
-      `${API_BASE_URL}/api/expense/update/${expenseId}`,
+      `${VITE_API_URL}/api/expense/update/${expenseId}`,
       data,
       {
         withCredentials: true,
@@ -55,7 +57,7 @@ export const updateUserExpensesApi = async (expenseId, data) => {
 export const deleteUserExpensesApi = async (expenseId) => {
   try {
     const response = await axios.delete(
-      `${API_BASE_URL}/api/expense/delete/${expenseId}`,
+      `${VITE_API_URL}/api/expense/delete/${expenseId}`,
       {
         withCredentials: true,
       }
