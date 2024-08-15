@@ -1,7 +1,8 @@
 import axios from "axios";
 // import API_BASE_URL from "../config/API.config";
-import dotenv from 'dotenv';
-dotenv.config();
+// import dotenv from 'dotenv';
+// dotenv.config();
+const VITE_API_URL = import.meta.env.VITE_API_URL;
 
 export const getUserAllExpenses = async () => {
   try {
