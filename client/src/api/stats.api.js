@@ -1,9 +1,11 @@
 import axios from "axios";
-import API_BASE_URL from "../config/API.config";
+// import API_BASE_URL from "../config/API.config";
+import dotenv from 'dotenv';
+dotenv.config();
 
 export const getOverviewApi = async () => {
   try {
-    const response = await axios.get(`${API_BASE_URL}/api/stats/overview`, {
+    const response = await axios.get(`${VITE_API_URL}/api/stats/overview`, {
       withCredentials: true,
     });
     return response.data;
@@ -14,7 +16,7 @@ export const getOverviewApi = async () => {
 
 export const getBarChartDataApi = async () => {
   try {
-    const response = await axios.get(`${API_BASE_URL}/api/stats/barchart`, {
+    const response = await axios.get(`${VITE_API_URL}/api/stats/barchart`, {
       withCredentials: true,
     });
     return response.data;
@@ -25,7 +27,7 @@ export const getBarChartDataApi = async () => {
 
 export const getPieChartDataApi = async () => { // Add this function
   try {
-    const response = await axios.get(`${API_BASE_URL}/api/stats/piechart`, {
+    const response = await axios.get(`${VITE_API_URL}/api/stats/piechart`, {
       withCredentials: true,
     });
     return response.data;
@@ -37,7 +39,7 @@ export const getPieChartDataApi = async () => { // Add this function
 export const getLatestBudgetsApi = async () => {
   try {
     const response = await axios.get(
-      `${API_BASE_URL}/api/budget/get?stat=true`,
+      `${VITE_API_URL}/api/budget/get?stat=true`,
       {
         withCredentials: true,
       }
@@ -51,7 +53,7 @@ export const getLatestBudgetsApi = async () => {
 export const getLatestExpensesApi = async () => {
   try {
     const response = await axios.get(
-      `${API_BASE_URL}/api/stats/recentExpenses`,
+      `${VITE_API_URL}/api/stats/recentExpenses`,
       {
         withCredentials: true,
       }
