@@ -1,12 +1,14 @@
 import axios from "axios";
 import { GoogleAuthProvider, getAuth, signInWithPopup } from "firebase/auth";
-import API_BASE_URL from "../config/API.config";
+// import API_BASE_URL from "../config/API.config";
 import { app } from "../firebase/sdk.firebase";
+import dotenv from 'dotenv';
+dotenv.config();
 
 export const signup = async (userData) => {
   try {
     const response = await axios.post(
-      `${API_BASE_URL}/api/auth/signup`,
+      `${VITE_API_URL}/api/auth/signup`,
       userData,
       { withCredentials: true }
     );
@@ -19,7 +21,7 @@ export const signup = async (userData) => {
 export const signin = async (userData) => {
   try {
     const response = await axios.post(
-      `${API_BASE_URL}/api/auth/signin`,
+      `${VITE_API_URL}/api/auth/signin`,
       userData,
       { withCredentials: true }
     );
@@ -31,7 +33,7 @@ export const signin = async (userData) => {
 
 export const signout = async () => {
   try {
-    const response = await axios.delete(`${API_BASE_URL}/api/auth/signout`, {
+    const response = await axios.delete(`${VITE_API_URL}/api/auth/signout`, {
       withCredentials: true,
     });
     return response.data;
@@ -43,7 +45,7 @@ export const signout = async () => {
 export const googleOAuth = async (userData) => {
   try {
     const response = await axios.post(
-      `${API_BASE_URL}/api/auth/google-oauth`,
+      `${VITE_API_URL}/api/auth/google-oauth`,
       userData,
       { withCredentials: true }
     );
@@ -55,7 +57,7 @@ export const googleOAuth = async (userData) => {
 
 export const getUser = async () => {
   try {
-    const response = await axios.get(`${API_BASE_URL}/api/auth/get/user`, {
+    const response = await axios.get(`${VITE_API_URL}/api/auth/get/user`, {
       withCredentials: true,
     });
     return response.data;
@@ -79,7 +81,7 @@ export const googleOAuthApi = async () => {
 export const googleOAuthApiServer = async (body) => {
   try {
     const response = await axios.post(
-      `${API_BASE_URL}/api/auth/google-oauth`,
+      `${VITE_API_URL}/api/auth/google-oauth`,
       body,
       {
         withCredentials: true,
