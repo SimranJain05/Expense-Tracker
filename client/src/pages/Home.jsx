@@ -18,7 +18,7 @@ export default function Home() {
           <div className="mt-8 flex flex-wrap justify-center gap-4">
             <Link
               className="block w-full rounded border border-zinc-600 bg-zinc-600 px-12 py-3 text-sm font-medium text-white hover:bg-transparent hover:text-zinc-600 focus:outline-none focus:ring active:text-opacity-75 sm:w-auto"
-              to="/dashboard"
+              to="/sign-in"
             >
               Get Started
             </Link>
