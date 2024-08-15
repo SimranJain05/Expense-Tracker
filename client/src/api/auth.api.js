@@ -2,8 +2,9 @@ import axios from "axios";
 import { GoogleAuthProvider, getAuth, signInWithPopup } from "firebase/auth";
 // import API_BASE_URL from "../config/API.config";
 import { app } from "../firebase/sdk.firebase";
-import dotenv from 'dotenv';
-dotenv.config();
+// import dotenv from 'dotenv';
+// dotenv.config();
+const VITE_API_URL = import.meta.env.VITE_API_URL;
 
 export const signup = async (userData) => {
   try {
